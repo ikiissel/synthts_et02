@@ -2,8 +2,14 @@
 <configurationDescriptor version="97">
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
     <df root="." name="0">
+      <df name="autom4te.cache">
+      </df>
       <df name="bin">
+        <df name=".deps">
+        </df>
         <in>synthts_et.cpp</in>
+      </df>
+      <df name="config">
       </df>
       <df name="dct">
       </df>
@@ -15,6 +21,8 @@
       </df>
       <df name="lib">
         <df name="engine">
+          <df name=".deps">
+          </df>
           <in>HTS_audio.c</in>
           <in>HTS_engine.c</in>
           <in>HTS_engine_patches.c</in>
@@ -28,6 +36,8 @@
           <in>HTS_vocoder.c</in>
         </df>
         <df name="etana">
+          <df name=".deps">
+          </df>
           <in>adhoc.cpp</in>
           <in>adhoc.h</in>
           <in>ahel2.h</in>
@@ -162,6 +172,8 @@
           <in>viga.h</in>
         </df>
         <df name="fsc">
+          <df name=".deps">
+          </df>
           <in>fsblockalloc.h</in>
           <in>fsc.h</in>
           <in>fscinit.cpp</in>
@@ -204,6 +216,8 @@
           <in>stdfsc.h</in>
         </df>
         <df name="label">
+          <df name=".deps">
+          </df>
           <in>label.cpp</in>
           <in>label.h</in>
           <in>mklab.cpp</in>
