@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="97">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <df root="." name="0">
+      <df name="autom4te.cache">
+      </df>
+      <df name="bin">
+        <df name=".deps">
+        </df>
+        <in>synthts_et.cpp</in>
+      </df>
+      <df name="config">
+      </df>
+      <df name="dct">
+      </df>
+      <df name="htsvoices">
+      </df>
+      <df name="include">
+        <in>HTS_engine.h</in>
+        <in>mklab.h</in>
+      </df>
+      <df name="lab">
+      </df>
+      <df name="lib">
+        <df name="engine">
+          <df name=".deps">
+          </df>
+          <in>HTS_audio.c</in>
+          <in>HTS_engine.c</in>
+          <in>HTS_engine_patches.c</in>
+          <in>HTS_gstream.c</in>
+          <in>HTS_hidden.h</in>
+          <in>HTS_label.c</in>
+          <in>HTS_misc.c</in>
+          <in>HTS_model.c</in>
+          <in>HTS_pstream.c</in>
+          <in>HTS_sstream.c</in>
+          <in>HTS_vocoder.c</in>
+        </df>
+        <df name="etana">
+          <df name=".deps">
+          </df>
+          <in>adhoc.cpp</in>
+          <in>adhoc.h</in>
+          <in>ahel2.h</in>
+          <in>arva.h</in>
+          <in>arva_av.cpp</in>
+          <in>arvahy1.cpp</in>
+          <in>arvai.cpp</in>
+          <in>arvalyh1.cpp</in>
+          <in>arvalyh2.cpp</in>
+          <in>arvamitte.cpp</in>
+          <in>arvans1.cpp</in>
+          <in>arvans2.cpp</in>
+          <in>arvapn1.cpp</in>
+          <in>arvapn2.cpp</in>
+          <in>arvash1.cpp</in>
+          <in>arvasuf1.cpp</in>
+          <in>arvavi1.cpp</in>
+          <in>arvax.cpp</in>
+          <in>bins.cpp</in>
+          <in>bsearch.cpp</in>
+          <in>chkgeon.cpp</in>
+          <in>chkhy1.cpp</in>
+          <in>chkhy2.cpp</in>
+          <in>chklyh0.cpp</in>
+          <in>chklyh1.cpp</in>
+          <in>chklyh2.cpp</in>
+          <in>chklyh3.cpp</in>
+          <in>chklyh4.cpp</in>
+          <in>chkmin.cpp</in>
+          <in>chkmitte.cpp</in>
+          <in>chknr2.cpp</in>
+          <in>chkoleta.cpp</in>
+          <in>chkvaljend.cpp</in>
+          <in>chkx.cpp</in>
+          <in>close_d.cpp</in>
+          <in>cmorf.cpp</in>
+          <in>cmorf.h</in>
+          <in>ctulem.h</in>
+          <in>cxxbs3.h</in>
+          <in>cxxcash.cpp</in>
+          <in>cxxcash.h</in>
+          <in>cxxraam.cpp</in>
+          <in>cyybs.cpp</in>
+          <in>dctmetainf.h</in>
+          <in>disambiguator.cpp</in>
+          <in>disambiguator.h</in>
+          <in>echopath.cpp</in>
+          <in>et3myh.cpp</in>
+          <in>etmrf.h</in>
+          <in>etmrfa.cpp</in>
+          <in>etmrfana.h</in>
+          <in>etmrfverstr.cpp</in>
+          <in>etmrfverstr.h</in>
+          <in>etmrfyhh.h</in>
+          <in>f-info.h</in>
+          <in>find_fd.cpp</in>
+          <in>fsxstring.h</in>
+          <in>hjk_cxx.cpp</in>
+          <in>ini_mrf.h</in>
+          <in>kchk1.cpp</in>
+          <in>kchk2.cpp</in>
+          <in>kchk30.cpp</in>
+          <in>kchk33.cpp</in>
+          <in>kchk4.cpp</in>
+          <in>kchk5.cpp</in>
+          <in>kchk6.cpp</in>
+          <in>kjuhtum.cpp</in>
+          <in>komp.cpp</in>
+          <in>kr6nksud.h</in>
+          <in>kr6nksud1.cpp</in>
+          <in>lib_amor32_macprefix.h</in>
+          <in>linguistic.cpp</in>
+          <in>linguistic.h</in>
+          <in>loefailist.cpp</in>
+          <in>loefailist.h</in>
+          <in>mittesona.cpp</in>
+          <in>mittesona.h</in>
+          <in>morphinfo.h</in>
+          <in>mrf-gen.cpp</in>
+          <in>mrf-mrf.h</in>
+          <in>mrf2yh2mrf.cpp</in>
+          <in>mrf2yh2mrf.h</in>
+          <in>mrflags.h</in>
+          <in>open_d1.cpp</in>
+          <in>open_d2.cpp</in>
+          <in>open_dm.cpp</in>
+          <in>pfscodepage.h</in>
+          <in>post-fsc.h</in>
+          <in>proof.h</in>
+          <in>pttype.h</in>
+          <in>ptword.cpp</in>
+          <in>ptword.h</in>
+          <in>readeel.cpp</in>
+          <in>readends.cpp</in>
+          <in>readfgrs.cpp</in>
+          <in>readfms.cpp</in>
+          <in>readgrs.cpp</in>
+          <in>readloe.cpp</in>
+          <in>readprf.cpp</in>
+          <in>readsuf.cpp</in>
+          <in>result.h</in>
+          <in>rfi.cpp</in>
+          <in>rooma.cpp</in>
+          <in>rooma.h</in>
+          <in>s6n0.h</in>
+          <in>silp.cpp</in>
+          <in>silp.h</in>
+          <in>sloendid.cpp</in>
+          <in>sloendid.h</in>
+          <in>sobivus.cpp</in>
+          <in>sonatk.h</in>
+          <in>strcnv.cpp</in>
+          <in>strtosi.cpp</in>
+          <in>suggestor.cpp</in>
+          <in>suggestor.h</in>
+          <in>suurused.h</in>
+          <in>t3common.h</in>
+          <in>t3lex.h</in>
+          <in>tloendid.cpp</in>
+          <in>tloendid.h</in>
+          <in>tmk2t.cpp</in>
+          <in>tmk2t.h</in>
+          <in>tmk2tx.cpp</in>
+          <in>tmk2tx.h</in>
+          <in>tmplarray.h</in>
+          <in>tmplptrarrayblabla.h</in>
+          <in>tmplptrsrtfnd.h</in>
+          <in>tulem.h</in>
+          <in>ty_lp.cpp</in>
+          <in>tyybid.h</in>
+          <in>valjatr.cpp</in>
+          <in>viga.h</in>
+        </df>
+        <df name="fsc">
+          <df name=".deps">
+          </df>
+          <in>fsblockalloc.h</in>
+          <in>fsc.h</in>
+          <in>fscinit.cpp</in>
+          <in>fscinit.h</in>
+          <in>fsdata.cpp</in>
+          <in>fsdata.h</in>
+          <in>fsdll.cpp</in>
+          <in>fsdll.h</in>
+          <in>fsexception.cpp</in>
+          <in>fsexception.h</in>
+          <in>fsfile.cpp</in>
+          <in>fsfile.h</in>
+          <in>fsfixalloc.cpp</in>
+          <in>fsfixalloc.h</in>
+          <in>fshugeinteger.cpp</in>
+          <in>fshugeinteger.h</in>
+          <in>fslist.cpp</in>
+          <in>fslist.h</in>
+          <in>fsmemory.cpp</in>
+          <in>fsmemory.h</in>
+          <in>fsreg.cpp</in>
+          <in>fsreg.h</in>
+          <in>fssmartptr.h</in>
+          <in>fsstream.h</in>
+          <in>fsstring.cpp</in>
+          <in>fsstring.h</in>
+          <in>fsstring2.h</in>
+          <in>fsthread.cpp</in>
+          <in>fsthread.h</in>
+          <in>fstime.cpp</in>
+          <in>fstime.h</in>
+          <in>fstrace.cpp</in>
+          <in>fstrace.h</in>
+          <in>fstype.h</in>
+          <in>fsutil.h</in>
+          <in>fsvar.cpp</in>
+          <in>fsvar.h</in>
+          <in>fswav.cpp</in>
+          <in>fswav.h</in>
+          <in>stdfsc.h</in>
+        </df>
+        <df name="label">
+          <df name=".deps">
+          </df>
+          <in>label.cpp</in>
+          <in>label.h</in>
+          <in>mklab.cpp</in>
+          <in>number.cpp</in>
+          <in>number.h</in>
+          <in>syls.cpp</in>
+          <in>syls.h</in>
+          <in>util.cpp</in>
+          <in>util.h</in>
+          <in>word.cpp</in>
+          <in>word.h</in>
+        </df>
+      </df>
+    </df>
+  </logicalFolder>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Default" type="0">
+      <toolsSet>
+        <developmentServer>localhost</developmentServer>
+        <platform>4</platform>
+      </toolsSet>
+      <compile>
+        <compiledirpicklist>
+          <compiledirpicklistitem>.</compiledirpicklistitem>
+          <compiledirpicklistitem>${AUTO_FOLDER}</compiledirpicklistitem>
+        </compiledirpicklist>
+        <compiledir>${AUTO_FOLDER}</compiledir>
+        <compilecommandpicklist>
+          <compilecommandpicklistitem>${MAKE} ${ITEM_NAME}.o</compilecommandpicklistitem>
+          <compilecommandpicklistitem>${AUTO_COMPILE}</compilecommandpicklistitem>
+        </compilecommandpicklist>
+        <compilecommand>${AUTO_COMPILE}</compilecommand>
+      </compile>
+      <dbx_gdbdebugger version="1">
+        <gdb_pathmaps>
+        </gdb_pathmaps>
+        <gdb_interceptlist>
+          <gdbinterceptoptions gdb_all="false" gdb_unhandled="true" gdb_unexpected="true"/>
+        </gdb_interceptlist>
+        <gdb_options>
+          <DebugOptions>
+          </DebugOptions>
+        </gdb_options>
+        <gdb_buildfirst gdb_buildfirst_overriden="false" gdb_buildfirst_old="false"/>
+      </dbx_gdbdebugger>
+      <nativedebugger version="1">
+        <engine>gdb</engine>
+      </nativedebugger>
+      <runprofile version="9">
+        <runcommandpicklist>
+          <runcommandpicklistitem>"${OUTPUT_PATH}"</runcommandpicklistitem>
+        </runcommandpicklist>
+        <runcommand>"${OUTPUT_PATH}"</runcommand>
+        <rundir>.</rundir>
+        <buildfirst>false</buildfirst>
+        <terminal-type>0</terminal-type>
+        <remove-instrumentation>0</remove-instrumentation>
+        <environment>
+        </environment>
+      </runprofile>
+    </conf>
+  </confs>
+</configurationDescriptor>
