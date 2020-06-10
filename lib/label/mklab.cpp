@@ -763,7 +763,7 @@ CFSArray<CFSWString> do_all(CFSWString utt, bool print_label, bool print_utt) {
         
         for (INTPTR i = 0; i < TU.TPA.GetSize(); i++) {
 		res.AddItem(TU.TPA[i].Phone);
-		P.prnn(TU.TPA[i].Phone);
+		//P.prnn(TU.TPA[i].Phone);
                 
                 
 
