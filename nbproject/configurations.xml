@@ -2,6 +2,9 @@
 <configurationDescriptor version="97">
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
     <df root="." name="0">
+      <df name="bin">
+        <in>synthts_et.cpp</in>
+      </df>
       <df name="lib">
         <df name="engine">
           <in>HTS_audio.c</in>
@@ -164,6 +167,18 @@
           <preBuildCommand>./configure CC=${IDE_CC} CXX=${IDE_CXX} CFLAGS="-g3 -gdwarf-2" CXXFLAGS="-g3 -gdwarf-2"</preBuildCommand>
         </preBuild>
       </makefileType>
+      <item path="bin/synthts_et.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <folder path="0/bin">
+        <ccTool>
+          <incDir>
+            <pElem>lib/etana</pElem>
+            <pElem>lib/fsc</pElem>
+            <pElem>include</pElem>
+            <pElem>bin</pElem>
+          </incDir>
+        </ccTool>
+      </folder>
       <folder path="0/lib/fsc">
         <ccTool>
           <incDir>
