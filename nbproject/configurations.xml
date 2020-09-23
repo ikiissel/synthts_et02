@@ -154,7 +154,10 @@
       </toolsSet>
       <flagsDictionary>
         <element flagsID="0" commonFlags="-O2"/>
-        <element flagsID="1" commonFlags="-std=c++14"/>
+        <element flagsID="1"
+                 commonFlags="-mtune=generic -march=x86-64 -O2 -fstack-protector-strong"/>
+        <element flagsID="2"
+                 commonFlags="-mtune=generic -march=x86-64 -fstack-protector-strong"/>
       </flagsDictionary>
       <codeAssistance>
       </codeAssistance>
@@ -166,64 +169,10 @@
           <executablePath></executablePath>
           <cTool>
             <incDir>
-              <pElem>lib/engine</pElem>
               <pElem>include</pElem>
+              <pElem>lib/engine</pElem>
             </incDir>
-            <preprocessorList>
-              <Elem>HAVE_INTTYPES_H=1</Elem>
-              <Elem>HAVE_LIBM=1</Elem>
-              <Elem>HAVE_MEMORY_H=1</Elem>
-              <Elem>HAVE_SQRT=1</Elem>
-              <Elem>HAVE_STDINT_H=1</Elem>
-              <Elem>HAVE_STDLIB_H=1</Elem>
-              <Elem>HAVE_STRCHR=1</Elem>
-              <Elem>HAVE_STRINGS_H=1</Elem>
-              <Elem>HAVE_STRING_H=1</Elem>
-              <Elem>HAVE_STRRCHR=1</Elem>
-              <Elem>HAVE_STRSTR=1</Elem>
-              <Elem>HAVE_SYS_STAT_H=1</Elem>
-              <Elem>HAVE_SYS_TYPES_H=1</Elem>
-              <Elem>HAVE_UNISTD_H=1</Elem>
-              <Elem>HAVE_VPRINTF=1</Elem>
-              <Elem>PACKAGE="synthts_et"</Elem>
-              <Elem>PACKAGE_BUGREPORT=""</Elem>
-              <Elem>PACKAGE_NAME="synthts_et"</Elem>
-              <Elem>PACKAGE_STRING="synthts_et 0.03"</Elem>
-              <Elem>PACKAGE_TARNAME="synthts_et"</Elem>
-              <Elem>PACKAGE_URL=""</Elem>
-              <Elem>PACKAGE_VERSION="0.03"</Elem>
-              <Elem>STDC_HEADERS=1</Elem>
-              <Elem>VERSION="0.03"</Elem>
-            </preprocessorList>
           </cTool>
-          <ccTool>
-            <preprocessorList>
-              <Elem>HAVE_INTTYPES_H=1</Elem>
-              <Elem>HAVE_LIBM=1</Elem>
-              <Elem>HAVE_MEMORY_H=1</Elem>
-              <Elem>HAVE_SQRT=1</Elem>
-              <Elem>HAVE_STDINT_H=1</Elem>
-              <Elem>HAVE_STDLIB_H=1</Elem>
-              <Elem>HAVE_STRCHR=1</Elem>
-              <Elem>HAVE_STRINGS_H=1</Elem>
-              <Elem>HAVE_STRING_H=1</Elem>
-              <Elem>HAVE_STRRCHR=1</Elem>
-              <Elem>HAVE_STRSTR=1</Elem>
-              <Elem>HAVE_SYS_STAT_H=1</Elem>
-              <Elem>HAVE_SYS_TYPES_H=1</Elem>
-              <Elem>HAVE_UNISTD_H=1</Elem>
-              <Elem>HAVE_VPRINTF=1</Elem>
-              <Elem>PACKAGE="synthts_et"</Elem>
-              <Elem>PACKAGE_BUGREPORT=""</Elem>
-              <Elem>PACKAGE_NAME="synthts_et"</Elem>
-              <Elem>PACKAGE_STRING="synthts_et 0.03"</Elem>
-              <Elem>PACKAGE_TARNAME="synthts_et"</Elem>
-              <Elem>PACKAGE_URL=""</Elem>
-              <Elem>PACKAGE_VERSION="0.03"</Elem>
-              <Elem>STDC_HEADERS=1</Elem>
-              <Elem>VERSION="0.03"</Elem>
-            </preprocessorList>
-          </ccTool>
         </makeTool>
         <preBuild>
           <preBuildCommandWorkingDir>.</preBuildCommandWorkingDir>
@@ -231,12 +180,15 @@
         </preBuild>
       </makefileType>
       <item path="bin/synthts_et.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="1">
+        <ccTool flags="2">
         </ccTool>
       </item>
       <folder path="0/bin">
         <ccTool>
           <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+            <pElem>include</pElem>
             <pElem>bin</pElem>
           </incDir>
         </ccTool>
@@ -250,475 +202,893 @@
           </preprocessorList>
         </ccTool>
       </folder>
-      <folder path="0/lib/etana">
+      <folder path="0/lib/label">
         <ccTool>
           <incDir>
+            <pElem>lib/fsc</pElem>
             <pElem>lib/etana</pElem>
           </incDir>
         </ccTool>
       </folder>
-      <folder path="0/lib/fsc">
-        <ccTool>
-          <incDir>
-            <pElem>lib/fsc</pElem>
-          </incDir>
-        </ccTool>
-      </folder>
-      <folder path="0/lib/label">
-        <ccTool>
-          <incDir>
-            <pElem>lib/label</pElem>
-          </incDir>
-        </ccTool>
-      </folder>
       <item path="lib/engine/HTS_audio.c" ex="false" tool="0" flavor2="3">
+        <cTool flags="2">
+        </cTool>
       </item>
       <item path="lib/engine/HTS_engine.c" ex="false" tool="0" flavor2="3">
+        <cTool flags="2">
+        </cTool>
       </item>
       <item path="lib/engine/HTS_engine_patches.c" ex="false" tool="0" flavor2="3">
+        <cTool flags="2">
+        </cTool>
       </item>
       <item path="lib/engine/HTS_gstream.c" ex="false" tool="0" flavor2="3">
+        <cTool flags="2">
+        </cTool>
       </item>
       <item path="lib/engine/HTS_label.c" ex="false" tool="0" flavor2="3">
+        <cTool flags="2">
+        </cTool>
       </item>
       <item path="lib/engine/HTS_misc.c" ex="false" tool="0" flavor2="3">
+        <cTool flags="2">
+        </cTool>
       </item>
       <item path="lib/engine/HTS_model.c" ex="false" tool="0" flavor2="3">
+        <cTool flags="2">
+        </cTool>
       </item>
       <item path="lib/engine/HTS_pstream.c" ex="false" tool="0" flavor2="3">
+        <cTool flags="2">
+        </cTool>
       </item>
       <item path="lib/engine/HTS_sstream.c" ex="false" tool="0" flavor2="3">
+        <cTool flags="2">
+        </cTool>
       </item>
       <item path="lib/engine/HTS_vocoder.c" ex="false" tool="0" flavor2="3">
+        <cTool flags="2">
+        </cTool>
       </item>
       <item path="lib/etana/adhoc.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/arva_av.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/arvahy1.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/arvai.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/arvalyh1.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/arvalyh2.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/arvamitte.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/arvans1.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/arvans2.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/arvapn1.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/arvapn2.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/arvash1.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/arvasuf1.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/arvavi1.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/arvax.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/bins.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/bsearch.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/chkgeon.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/chkhy1.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/chkhy2.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/chklyh0.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/chklyh1.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/chklyh2.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/chklyh3.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/chklyh4.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/chkmin.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/chkmitte.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/chknr2.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/chkoleta.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/chkvaljend.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/chkx.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/close_d.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/cmorf.cpp" ex="false" tool="1" flavor2="11">
         <ccTool flags="0">
+          <incDir>
+            <pElem>lib/etana</pElem>
+          </incDir>
+          <preprocessorList>
+            <Elem>HAVE_INTTYPES_H=1</Elem>
+            <Elem>HAVE_LIBM=1</Elem>
+            <Elem>HAVE_MEMORY_H=1</Elem>
+            <Elem>HAVE_SQRT=1</Elem>
+            <Elem>HAVE_STDINT_H=1</Elem>
+            <Elem>HAVE_STDLIB_H=1</Elem>
+            <Elem>HAVE_STRCHR=1</Elem>
+            <Elem>HAVE_STRINGS_H=1</Elem>
+            <Elem>HAVE_STRING_H=1</Elem>
+            <Elem>HAVE_STRRCHR=1</Elem>
+            <Elem>HAVE_STRSTR=1</Elem>
+            <Elem>HAVE_SYS_STAT_H=1</Elem>
+            <Elem>HAVE_SYS_TYPES_H=1</Elem>
+            <Elem>HAVE_UNISTD_H=1</Elem>
+            <Elem>HAVE_VPRINTF=1</Elem>
+            <Elem>PACKAGE="synthts_et"</Elem>
+            <Elem>PACKAGE_BUGREPORT=""</Elem>
+            <Elem>PACKAGE_NAME="synthts_et"</Elem>
+            <Elem>PACKAGE_STRING="synthts_et 0.01"</Elem>
+            <Elem>PACKAGE_TARNAME="synthts_et"</Elem>
+            <Elem>PACKAGE_URL=""</Elem>
+            <Elem>PACKAGE_VERSION="0.01"</Elem>
+            <Elem>STDC_HEADERS=1</Elem>
+            <Elem>VERSION="0.01"</Elem>
+          </preprocessorList>
         </ccTool>
       </item>
       <item path="lib/etana/cxxcash.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/cxxraam.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/cyybs.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/disambiguator.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/echopath.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/et3myh.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/etmrfa.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/etmrfverstr.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/find_fd.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/hjk_cxx.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/kchk1.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/kchk2.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/kchk30.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/kchk33.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/kchk4.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/kchk5.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/kchk6.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/kjuhtum.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/komp.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/kr6nksud1.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/linguistic.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/loefailist.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/mittesona.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/mrf-gen.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/mrf2yh2mrf.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/open_d1.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/open_d2.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/open_dm.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/ptword.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/readeel.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/readends.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/readfgrs.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/readfms.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/readgrs.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/readloe.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/readprf.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/readsuf.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/rfi.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/rooma.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/silp.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/sloendid.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/sobivus.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/strcnv.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/strtosi.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/suggestor.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/tloendid.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/tmk2t.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/tmk2tx.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/ty_lp.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/etana/valjatr.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/fsc/fscinit.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/fsc/fsdata.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/fsc/fsdll.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/fsc/fsexception.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/fsc/fsfile.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/fsc/fsfixalloc.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/fsc/fshugeinteger.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/fsc/fslist.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/fsc/fsmemory.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/fsc/fsreg.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
         </ccTool>
       </item>
       <item path="lib/fsc/fsstring.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/fsc/fsthread.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/fsc/fstime.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/fsc/fstrace.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/fsc/fsvar.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/fsc/fswav.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="0">
+        <ccTool flags="1">
+          <incDir>
+            <pElem>lib/fsc</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/label/label.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="1">
+        <ccTool flags="2">
+          <incDir>
+            <pElem>lib/label</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/label/mklab.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool>
-          <preprocessorList>
-            <Elem>PACKAGE_STRING="synthts_et 0.03"</Elem>
-            <Elem>PACKAGE_VERSION="0.03"</Elem>
-            <Elem>VERSION="0.03"</Elem>
-          </preprocessorList>
+        <ccTool flags="2">
+          <incDir>
+            <pElem>include</pElem>
+            <pElem>lib/label</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/label/number.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="1">
+        <ccTool flags="2">
+          <incDir>
+            <pElem>lib/label</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/label/syls.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="1">
-          <preprocessorList>
-            <Elem>PACKAGE_STRING="synthts_et 0.03"</Elem>
-            <Elem>PACKAGE_VERSION="0.03"</Elem>
-            <Elem>VERSION="0.03"</Elem>
-          </preprocessorList>
+        <ccTool flags="2">
+          <incDir>
+            <pElem>lib/label</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/label/util.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="1">
+        <ccTool flags="2">
+          <incDir>
+            <pElem>lib/label</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="lib/label/word.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="1">
+        <ccTool flags="2">
+          <incDir>
+            <pElem>include</pElem>
+            <pElem>lib/label</pElem>
+          </incDir>
         </ccTool>
       </item>
     </conf>
