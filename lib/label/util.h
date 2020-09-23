@@ -98,7 +98,7 @@ bool NumberIsOK(CFSWString s);
 
 
 
-class PPrinter {
+class Printer {
 
     CFSWString length(CFSWString s, INTPTR l) {
         while (s.GetLength() < l)
