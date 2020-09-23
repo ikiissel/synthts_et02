@@ -48,7 +48,7 @@ pattern_struct patterns[] = {
     L"VVVC",	2, // 2	lAI:-US
 };
 
-//Printer PP;
+Printer PP;
 
 bool can_palat(CFSWString c) {
     if (c.FindOneOf(L"DLNST") > -1) return true;
@@ -293,10 +293,18 @@ void AddStress(CFSClassArray<TSyl> &sv, INTPTR wp) {
     /* Kõige radikaalsem rõhutus siiani. 
      * wp = kui on liitsõna esimene liige siis on seal pearõhk.
      */
-    INTPTR main_stress = 2;
+    INTPTR main_stress;
+    if (wp == 0) 
+    { 
+        main_stress = 2; 
+    } 
+    else 
+    {
+        main_stress = 1;
+    }
     INTPTR stress = 1;
     // pearõhk saab olla ainult esimesel osisel liitsõnas
-    if (wp > 0) main_stress = 1;
+
     INTPTR size = sv.GetSize();
 	
 	//p.prni(main_stress);
@@ -307,6 +315,7 @@ void AddStress(CFSClassArray<TSyl> &sv, INTPTR wp) {
     if (size == 1) {
         sv[0].Stress = main_stress;
         sv[0].Syl.Remove(L'<');
+
     }
     else {
         // paneme varasema teadmise järgi algväärtused
@@ -381,29 +390,40 @@ CFSWString word_to_syls(CFSWString word) {
 
 void TUtterance::DoSyls(TWord& TW) {
 //PP.prnn(TW.TWMInfo.m_szRoot);
-
+    PP.prnn(TW.TWMInfo.m_szRoot);
 
     CFSArray<CFSWString> temp_arr, c_words;
 	CFSClassArray<TSyl> TSA;
+        CFSClassArray<TSyl> TSA_temp;
 	
 	//Kuna siin tulevad DLNST märgentitena siis:
 	TW.TWMInfo.m_szRoot = TW.TWMInfo.m_szRoot.ToLower();
 	
 	explode(TW.TWMInfo.m_szRoot, L"_", c_words);
 	CFSWString s;
+        
 	for (INTPTR cw = 0; cw < c_words.GetSize(); cw++) {
 		s = word_to_syls(c_words[cw]);
 		explode(s, d, temp_arr);
+                TSA_temp.Cleanup();
 		for (INTPTR i = 0; i < temp_arr.GetSize(); i++) {
 			TSyl T;
 			T.Syl = temp_arr[i];
 			T.Stress = 0;
 			//T.DoPhones(T);
-			TW.TSA.AddItem(T);
+			TSA_temp.AddItem(T);
 			
 		}
-		AddStress(TW.TSA, cw);
-	}
+                    PP.prni(cw);
+                    PP.prnn();
+
+                AddStress(TSA_temp, cw);
+	
+                for (INTPTR j = 0; j < TSA_temp.GetSize(); j++)
+                    TW.TSA.AddItem(TSA_temp[j]);
+        
+        
+        }
 	
 	TW.e2 = TW.TSA.GetSize();
 	// Välde on ikka silbi, mitte foneemi omadus :)
@@ -414,13 +434,13 @@ void TUtterance::DoSyls(TWord& TW) {
 			TW.TSA[i].Syl.Remove(L':');
 			
 		}
-/*		PP.prn(TW.TSA[i].Syl);
+		PP.prn(TW.TSA[i].Syl);
                 PP.prni(TW.TSA[i].Stress);
                 PP.prni(TW.TSA[i].DoQ);
-                PP.prnn(); */
+                PP.prnn(); 
 		TW.TSA[i].DoPhones(TW.TSA[i]);
 	}
-
+        PP.prnn();
 }
 
 // 

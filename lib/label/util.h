@@ -114,22 +114,16 @@ public:
     /* tulba laius */
     INTPTR l = 25;
 
-    /* prindib " "+%s */
+    /* prindib %s+space */
     void pr(CFSWString s) {
 
         fprintf(stderr, "%s ", cstr(s));
     }
-
+    /* prindib lihtsalt  %s + l */
     void prn(CFSWString s) {
         s = length(s, l);
         fprintf(stderr, "%s", cstr(s));
     }
-    /*   void prni (INTPTR i) {
-            CFSWString s = length (s, l);
-            int i1 = i;
-            fprintf(stderr, "%s%d", cstr(s), i1);
-        }
-     */
 
     /* prindib \\n */
     void prnn() {
