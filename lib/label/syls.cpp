@@ -48,7 +48,7 @@ pattern_struct patterns[] = {
     L"VVVC",	2, // 2	lAI:-US
 };
 
-Printer PP;
+//Printer PP;
 
 bool can_palat(CFSWString c) {
     if (c.FindOneOf(L"DLNST") > -1) return true;
@@ -414,10 +414,10 @@ void TUtterance::DoSyls(TWord& TW) {
 			TW.TSA[i].Syl.Remove(L':');
 			
 		}
-		PP.prn(TW.TSA[i].Syl);
+/*		PP.prn(TW.TSA[i].Syl);
                 PP.prni(TW.TSA[i].Stress);
                 PP.prni(TW.TSA[i].DoQ);
-                PP.prnn();
+                PP.prnn(); */
 		TW.TSA[i].DoPhones(TW.TSA[i]);
 	}
 

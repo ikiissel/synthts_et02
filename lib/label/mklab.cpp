@@ -7,7 +7,7 @@
 #include "syls.h"
 #include "label.h"
 
-Printer P;
+//Printer P;
 
 CFSWString DealWithText(CFSWString text) {
 	/* Proovin kogu sõnniku minema loopida */
@@ -679,7 +679,7 @@ CFSClassArray<TWord> TUtterance::DoTokens(CFSClassArray<TWord> TWA) {
 
 						if (is_ebracket(TRecA[j].s) && Result.GetSize() > 0) { //lõpetav
 							//Result[Result.GetSize() - 1].PhrBreakAfter = 2;
-                                                     P.prnn(L"Siin");
+                                                     
                                                     //TWA[i+2].PhrBreakAfter = 2;
 						}
 					}

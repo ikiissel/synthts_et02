@@ -154,6 +154,7 @@
       </toolsSet>
       <flagsDictionary>
         <element flagsID="0" commonFlags="-O2"/>
+        <element flagsID="1" commonFlags="-std=c++14"/>
       </flagsDictionary>
       <codeAssistance>
       </codeAssistance>
@@ -230,6 +231,8 @@
         </preBuild>
       </makefileType>
       <item path="bin/synthts_et.cpp" ex="false" tool="1" flavor2="11">
+        <ccTool flags="1">
+        </ccTool>
       </item>
       <folder path="0/bin">
         <ccTool>
@@ -685,16 +688,38 @@
         </ccTool>
       </item>
       <item path="lib/label/label.cpp" ex="false" tool="1" flavor2="11">
+        <ccTool flags="1">
+        </ccTool>
       </item>
       <item path="lib/label/mklab.cpp" ex="false" tool="1" flavor2="11">
+        <ccTool>
+          <preprocessorList>
+            <Elem>PACKAGE_STRING="synthts_et 0.03"</Elem>
+            <Elem>PACKAGE_VERSION="0.03"</Elem>
+            <Elem>VERSION="0.03"</Elem>
+          </preprocessorList>
+        </ccTool>
       </item>
       <item path="lib/label/number.cpp" ex="false" tool="1" flavor2="11">
+        <ccTool flags="1">
+        </ccTool>
       </item>
       <item path="lib/label/syls.cpp" ex="false" tool="1" flavor2="11">
+        <ccTool flags="1">
+          <preprocessorList>
+            <Elem>PACKAGE_STRING="synthts_et 0.03"</Elem>
+            <Elem>PACKAGE_VERSION="0.03"</Elem>
+            <Elem>VERSION="0.03"</Elem>
+          </preprocessorList>
+        </ccTool>
       </item>
       <item path="lib/label/util.cpp" ex="false" tool="1" flavor2="11">
+        <ccTool flags="1">
+        </ccTool>
       </item>
       <item path="lib/label/word.cpp" ex="false" tool="1" flavor2="11">
+        <ccTool flags="1">
+        </ccTool>
       </item>
     </conf>
   </confs>
