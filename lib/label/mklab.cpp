@@ -7,7 +7,7 @@
 #include "syls.h"
 #include "label.h"
 
-
+Printer P;
 
 CFSWString DealWithText(CFSWString text) {
 	/* Proovin kogu sõnniku minema loopida */
@@ -677,8 +677,10 @@ CFSClassArray<TWord> TUtterance::DoTokens(CFSClassArray<TWord> TWA) {
 								Result[Result.GetSize() - 1].PhrBreakAfter = 2;
 						}
 
-						if (is_ebracket(TRecA[j].s) && Result.GetSize() > 0) { //alustav
-							Result[Result.GetSize() - 1].PhrBreakAfter = 2;
+						if (is_ebracket(TRecA[j].s) && Result.GetSize() > 0) { //lõpetav
+							//Result[Result.GetSize() - 1].PhrBreakAfter = 2;
+                                                     P.prnn(L"Siin");
+                                                    //TWA[i+2].PhrBreakAfter = 2;
 						}
 					}
 				}
@@ -763,7 +765,7 @@ CFSArray<CFSWString> do_all(CFSWString utt, bool print_label, bool print_utt) {
         
         for (INTPTR i = 0; i < TU.TPA.GetSize(); i++) {
 		res.AddItem(TU.TPA[i].Phone);
-		//P.prnn(TU.TPA[i].Phone);
+		P.prnn(TU.TPA[i].Phone);
                 
                 
 
