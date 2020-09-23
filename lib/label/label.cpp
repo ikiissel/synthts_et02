@@ -215,7 +215,7 @@ void TUtterance::DoCalculations(CFSClassArray<TWord> &TWA) {
 	CalcPhrases(TWA);
 
 }
-Printer Pr;
+
 
 CFSClassArray<TPhone> TUtterance::DoPhoneArray(CFSClassArray<TWord> &TWA){
     CFSClassArray<TPhone> TPA;

@@ -95,7 +95,10 @@ const char* ccstr(CFSWString s);
 CFSWString its(INTPTR i);
 bool NumberIsOK(CFSWString s);
 
-class Printer {
+
+
+
+class PPrinter {
 
     CFSWString length(CFSWString s, INTPTR l) {
         while (s.GetLength() < l)
@@ -162,6 +165,9 @@ public:
 
 };
 
+        
+        
+        
 /*Tipmine class kuhu ühestamise tulemus kokku võtta*/
 class TPhone {
 public:
