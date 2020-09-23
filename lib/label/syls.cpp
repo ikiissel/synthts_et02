@@ -48,6 +48,8 @@ pattern_struct patterns[] = {
     L"VVVC",	2, // 2	lAI:-US
 };
 
+Printer PP;
+
 bool can_palat(CFSWString c) {
     if (c.FindOneOf(L"DLNST") > -1) return true;
     return false;
@@ -378,7 +380,10 @@ CFSWString word_to_syls(CFSWString word) {
 
 
 void TUtterance::DoSyls(TWord& TW) {
-	CFSArray<CFSWString> temp_arr, c_words;
+//PP.prnn(TW.TWMInfo.m_szRoot);
+
+
+    CFSArray<CFSWString> temp_arr, c_words;
 	CFSClassArray<TSyl> TSA;
 	
 	//Kuna siin tulevad DLNST märgentitena siis:
@@ -409,7 +414,10 @@ void TUtterance::DoSyls(TWord& TW) {
 			TW.TSA[i].Syl.Remove(L':');
 			
 		}
-		
+		PP.prn(TW.TSA[i].Syl);
+                PP.prni(TW.TSA[i].Stress);
+                PP.prni(TW.TSA[i].DoQ);
+                PP.prnn();
 		TW.TSA[i].DoPhones(TW.TSA[i]);
 	}
 
