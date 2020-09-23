@@ -1,5 +1,6 @@
 
 #include "mrf2yh2mrf.h"
+#include "../../lib/etana/mrf2yh2mrf.h"
 
 static  MRF2YH_LOEND mrf2yhPunktuatsioon[] = 
     {
@@ -67,7 +68,7 @@ static  MRF2YH_LOEND mrf2yhSona[]=
         {FSWSTR("kunagi"),          FSWSTR("RRM")},
         {FSWSTR("kus"),             FSWSTR("RRY")},
         {FSWSTR("maha"),            FSWSTR("RRM")},
-        {FSWSTR("miks"),            FSWSTR("RRY")},
+        //{FSWSTR("miks"),            FSWSTR("RRY")}, hjk okt 2019
         {FSWSTR("millal"),          FSWSTR("RRY")},
         {FSWSTR("nagu"),            FSWSTR("CSRR")},
         {FSWSTR("nii"),             FSWSTR("RRM")},
@@ -691,8 +692,19 @@ void MRF2YH2MRF::FsTags2YmmTags(
 
     // sõnaliik + sõna --> ühestajamärgendiks
     // DXIG -> RR RR II ASG t��tlus
+//    if(*p_sona == FSWSTR("miks") && yhmarg1==FSWSTR("RR")) // väga kole!!!
+    if(*p_sona == FSWSTR("miks") && muut1.Find(p_mTul->sl[0]) >= 0) // väga kole!!!
+        {
+	yhmarg1=FSWSTR("RRY"); //HJK okt 2019 sest miks on ka nimisõna...
+        return;
+        }
     if(muut1.Find(p_mTul->sl[0]) >= 0) // sõnaliik oli 'muut1' loendis
         {
+        if(*p_sona == FSWSTR("miks")) // väga kole!!!
+            {
+	    yhmarg1=FSWSTR("RRY"); //HJK okt 2019 sest miks on ka nimisõna...
+            return;
+            }
         p_rec=rr.Get((FSWCHAR*)(const FSWCHAR*)*p_sona);
         if(p_rec!= NULL)    // 
             {            

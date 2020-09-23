@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configurationDescriptor version="97">
+<configurationDescriptor version="100">
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
     <df root="." name="0">
       <df name="autom4te.cache">
@@ -94,6 +94,8 @@
           <in>etmrfyhh.h</in>
           <in>f-info.h</in>
           <in>find_fd.cpp</in>
+          <in>fs2gt.cpp</in>
+          <in>fs2gt.h</in>
           <in>fsxstring.h</in>
           <in>hjk_cxx.cpp</in>
           <in>ini_mrf.h</in>
