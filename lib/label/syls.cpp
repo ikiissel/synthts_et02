@@ -324,6 +324,18 @@ void AddStress(CFSClassArray<TSyl> &sv, INTPTR wp) {
         // pearõhk on seal, kus ? (ühtlasi koristame)
         for (INTPTR i = 0; i < size; i++) {
 
+            // liitsõna esimese klusiili parandus
+            if (wp > 0 && i == 0) {
+                
+                
+                if (sv[i].Syl.GetAt(0) == L't')
+                    sv[i].Syl[0] = L'd';
+                
+                PP.prnn(sv[i].Syl + L"*********************");
+                
+            }
+            
+            
             // eksperimendi korras topeldame pikeneva, aga järgmisesse silpi sattunud laa-t:a -> laat-t:ta
             if (i > 0 && sv[i].Syl.GetAt(1) == L':') {
                 CFSWString c = sv[i].Syl.GetAt(0);
@@ -390,7 +402,7 @@ CFSWString word_to_syls(CFSWString word) {
 
 void TUtterance::DoSyls(TWord& TW) {
 //PP.prnn(TW.TWMInfo.m_szRoot);
-    PP.prnn(TW.TWMInfo.m_szRoot);
+
 
     CFSArray<CFSWString> temp_arr, c_words;
 	CFSClassArray<TSyl> TSA;
@@ -414,8 +426,6 @@ void TUtterance::DoSyls(TWord& TW) {
 			TSA_temp.AddItem(T);
 			
 		}
-                    PP.prni(cw);
-                    PP.prnn();
 
                 AddStress(TSA_temp, cw);
 	
@@ -437,7 +447,7 @@ void TUtterance::DoSyls(TWord& TW) {
 		PP.prn(TW.TSA[i].Syl);
                 PP.prni(TW.TSA[i].Stress);
                 PP.prni(TW.TSA[i].DoQ);
-                PP.prnn(); 
+                PP.prnn();  
 		TW.TSA[i].DoPhones(TW.TSA[i]);
 	}
         PP.prnn();

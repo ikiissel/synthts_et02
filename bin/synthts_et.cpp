@@ -393,10 +393,10 @@ int main(int argc, char* argv[]) {
             fprintf(stderr, "Viga: süntees ebaonnestus.\n");            
             HTS_Engine_clear(&engine);
             exit(1);
-        }
-
+        }        
         clean_char_vector(vc);
         data_size += HTS_Engine_engine_speech_size(&engine);
+        data_size += 24000;
         if (write_durlabel) HTS_Engine_save_durlabel(&engine, durfp);
         HTS_Engine_save_generated_speech(&engine, outfp);
 
