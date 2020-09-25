@@ -384,6 +384,7 @@ void HTS_Engine_set_parameter_interpolation_weight(HTS_Engine * engine, size_t v
 /* HTS_Engine_get_parameter_interpolation_weight: get interpolation weight for parameter */
 double HTS_Engine_get_parameter_interpolation_weight(HTS_Engine * engine, size_t voice_index, size_t stream_index);
 
+
 /* HTS_Engine_set_gv_interpolation_weight: set interpolation weight for GV */
 void HTS_Engine_set_gv_interpolation_weight(HTS_Engine * engine, size_t voice_index, size_t stream_index, double f);
 
@@ -458,6 +459,10 @@ void HTS_Engine_save_generated_parameter(HTS_Engine * engine, size_t stream_inde
 
 /* HTS_Engine_save_generated_speech: save generated speech */
 void HTS_Engine_save_generated_speech(HTS_Engine * engine, FILE * fp);
+
+/*In HTS_Enginepaches save with pause*/
+void HTS_Engine_save_generated_speech_with_pause(HTS_Engine * engine, FILE * fp, int pause_dur);
+
 
 /* HTS_Engine_save_riff: save RIFF format file */
 void HTS_Engine_save_riff(HTS_Engine * engine, FILE * fp);

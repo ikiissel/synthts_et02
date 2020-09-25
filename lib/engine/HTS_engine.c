@@ -694,10 +694,6 @@ void HTS_Engine_save_generated_speech(HTS_Engine * engine, FILE * fp)
          temp = (short) x;
       fwrite(&temp, sizeof(short), 1, fp);
    }
-   temp = 0;
-   for (i = 0; i < 24000; i++) {
-       fwrite(&temp, sizeof(char), 1, fp);
-   }
 }
 
 /* HTS_Engine_save_riff: save RIFF format file */

@@ -54,6 +54,32 @@ int HTS_Engine_engine_speech_size(HTS_Engine * engine) {
    return HTS_GStreamSet_get_total_nsamples(&engine->gss) * sizeof(short);
 }
 
+/* HTS_Engine_save_generated_speech: save generated speech */
+void HTS_Engine_save_generated_speech_with_pause(HTS_Engine * engine, FILE * fp, int pause_dur)
+{
+   size_t i;
+   double x;
+   short temp;
+   HTS_GStreamSet *gss = &engine->gss;
+
+   for (i = 0; i < HTS_GStreamSet_get_total_nsamples(gss); i++) {
+      x = HTS_GStreamSet_get_speech(gss, i);
+      if (x > 32767.0)
+         temp = 32767;
+      else if (x < -32768.0)
+         temp = -32768;
+      else
+         temp = (short) x;
+      fwrite(&temp, sizeof(short), 1, fp);
+   }
+   temp = 0;
+   for (i = 0; i < pause_dur; i++) {
+       fwrite(&temp, sizeof(char), 1, fp);
+   }
+}
+
+
+
 void HTS_Engine_write_header(HTS_Engine * engine, FILE * fp, int fs)
 {
    size_t i;
