@@ -390,7 +390,6 @@ int main(int argc, char* argv[]) {
     for (INTPTR i = 0; i < size; i++) {
 
         CFSArray<CFSWString> label = do_all(res[i], print_label, print_utt);
-
         std::vector<std::string> v;
         v = to_vector(label);
 
@@ -398,7 +397,7 @@ int main(int argc, char* argv[]) {
         fill_char_vector(v, vc);
 
         size_t n_lines = vc.size();
-		
+
         if (HTS_Engine_synthesize_from_strings(&engine, &vc[0], n_lines) != TRUE) {
             fprintf(stderr, "Viga: süntees ebaonnestus.\n");            
             HTS_Engine_clear(&engine);
@@ -406,6 +405,7 @@ int main(int argc, char* argv[]) {
         }        
         clean_char_vector(vc);
         data_size += HTS_Engine_engine_speech_size(&engine);
+        
         if (i < (size-1)) { // et wavi lõppu ei tuleks pause_dur vaikus
             data_size += pause_dur;
             HTS_Engine_save_generated_speech_with_pause(&engine, outfp, pause_dur);

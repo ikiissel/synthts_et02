@@ -3,7 +3,7 @@
 #include "../etana/proof.h"
 #include "util.h"
 
-
+//Printer PP;
 
 CFSWString SylVowel(CFSClassArray<TPhone> A) {
 	for (INTPTR i = 0; i < A.GetSize(); i++) {
@@ -218,6 +218,11 @@ void TUtterance::DoCalculations(CFSClassArray<TWord> &TWA) {
 
 
 CFSClassArray<TPhone> TUtterance::DoPhoneArray(CFSClassArray<TWord> &TWA){
+    
+    for (int i = 0; i < TWA.GetSize(); i++) {
+//        PP.prnn(TWA[i].TWMInfo.m_szRoot);
+    }
+    
     CFSClassArray<TPhone> TPA;
 	INTPTR LastBreak;
 	CFSWString BreakEnd;
@@ -263,48 +268,51 @@ CFSClassArray<TPhone> TUtterance::DoPhoneArray(CFSClassArray<TWord> &TWA){
 	
 	
 	TPA.Cleanup();
-	for (INTPTR i = 0; i < TPA2.GetSize(); i++) {
-		TPhone P = TPA2[i];
+    
+    for (INTPTR i = 0; i < TPA2.GetSize(); i++) {
+        
+        TPhone P = TPA2[i];
+        if (i == 0) {
 
-		if (i == 0) {
-	P.Phone = L"x^x-" +
-							P.Phone +  L"+" +
-							TPA2[i+1].Phone +  L"=" +
-							TPA2[i+2].Phone + L"@";			
-		} else
-			if (i == 1) {
-					P.Phone = L"x^" +
-							TPA2[i-1].Phone + L"-" +
-							P.Phone +  L"+" +
-							TPA2[i+1].Phone +  L"=" +
-							TPA2[i+2].Phone + L"@";
-			} else
-				if (i == TPA2.GetSize() - 2) {
-						P.Phone = TPA2[i-2].Phone + L"^" +
-							TPA2[i-1].Phone + L"-" +
-							P.Phone +  L"+" +
-							TPA2[i+1].Phone +  L"=" +
-							L"x" + L"@";
-				} else
-					if (i == TPA2.GetSize() - 1) {
-						
-						P.Phone = TPA2[i-2].Phone + L"^" +
-							TPA2[i-1].Phone + L"-" +
-							P.Phone +  L"+" +
-							L"x" +  L"=" +
-							L"x" + L"@";
-					} else
-					{
-						P.Phone = TPA2[i-2].Phone + L"^" +
-							TPA2[i-1].Phone + L"-" +
-							P.Phone +  L"+" +
-							TPA2[i+1].Phone +  L"=" +
-							TPA2[i+2].Phone + L"@";
-					}
-		P.Phone += P.PL;
-		TPA.AddItem(P);
-	}
-	
+            P.Phone = L"x^x-" +
+                    P.Phone + L"+" +
+                    TPA2[i + 1].Phone + L"=" +
+                    TPA2[i + 2].Phone + L"@";
+
+        } else
+            if (i == 1) {
+            P.Phone = L"x^" +
+                    TPA2[i - 1].Phone + L"-" +
+                    P.Phone + L"+" +
+                    TPA2[i + 1].Phone + L"=" +
+                    TPA2[i + 2].Phone + L"@";
+        } else
+            if (i == TPA2.GetSize() - 2) {
+            P.Phone = TPA2[i - 2].Phone + L"^" +
+                    TPA2[i - 1].Phone + L"-" +
+                    P.Phone + L"+" +
+                    TPA2[i + 1].Phone + L"=" +
+                    L"x" + L"@";
+        } else
+            if (i == TPA2.GetSize() - 1) {
+
+            P.Phone = TPA2[i - 2].Phone + L"^" +
+                    TPA2[i - 1].Phone + L"-" +
+                    P.Phone + L"+" +
+                    L"x" + L"=" +
+                    L"x" + L"@";
+        } else {
+            P.Phone = TPA2[i - 2].Phone + L"^" +
+                    TPA2[i - 1].Phone + L"-" +
+                    P.Phone + L"+" +
+                    TPA2[i + 1].Phone + L"=" +
+                    TPA2[i + 2].Phone + L"@";
+        }
+        P.Phone += P.PL;
+        
+        TPA.AddItem(P);
+    }
+    
 	
 	return TPA;
 }

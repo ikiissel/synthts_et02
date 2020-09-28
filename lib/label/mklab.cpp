@@ -757,10 +757,10 @@ CFSArray<CFSWString> do_all(CFSWString utt, bool print_label, bool print_utt) {
 
 
 	TU.AnalyzeText();
-	TU.Syllabify();
-	TU.Phrasing();
+        TU.Syllabify();
+        TU.Phrasing();
 	TU.Calculate();
-	TU.PhoneArray();
+        TU.PhoneArray();
 
         
         for (INTPTR i = 0; i < TU.TPA.GetSize(); i++) {

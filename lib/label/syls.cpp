@@ -325,12 +325,12 @@ void AddStress(CFSClassArray<TSyl> &sv, INTPTR wp) {
         for (INTPTR i = 0; i < size; i++) {
 
             // liitsõna esimese klusiili parandus
-            if (wp > 0 && i == 0) {
+           /* if (wp > 0 && i == 0) {
                 if (sv[i].Syl.GetAt(0) == L't')
                     sv[i].Syl[0] = L'd';
                 //PP.prnn(sv[i].Syl + L"Koos d-ga");
                 
-            }
+            }*/
             
             
             // eksperimendi korras topeldame pikeneva, aga järgmisesse silpi sattunud laa-t:a -> laat-t:ta
@@ -444,9 +444,9 @@ void TUtterance::DoSyls(TWord& TW) {
 /*		PP.prn(TW.TSA[i].Syl);
                 PP.prni(TW.TSA[i].Stress);
                 PP.prni(TW.TSA[i].DoQ);
-                PP.prnn();  
+                PP.prnn();   */ 
 		TW.TSA[i].DoPhones(TW.TSA[i]);
- */ 
+
 	}
         //PP.prnn();
 }
