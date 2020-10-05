@@ -286,8 +286,14 @@ bool is_stressed_syl(CFSWString syl) {
     return res;
 }
 
+bool IsKPT (CFSWString s) {
+    if (s.FindOneOf(L"kpt")>-1) return true;
+    return false;
+}
 
-
+CFSWString ToGBD (CFSWString s) {
+    if (s == L"k") return L"g";
+}
 
 void AddStress(CFSClassArray<TSyl> &sv, INTPTR wp) {
     /* Kõige radikaalsem rõhutus siiani. 
