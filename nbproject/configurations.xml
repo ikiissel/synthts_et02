@@ -178,8 +178,6 @@
         </preBuild>
       </makefileType>
       <item path="bin/synthts_et.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="1">
-        </ccTool>
       </item>
       <folder path="0/bin">
         <ccTool>
@@ -988,69 +986,22 @@
         </ccTool>
       </item>
       <item path="lib/label/label.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="1">
+        <ccTool flags="0">
           <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
             <pElem>lib/label</pElem>
           </incDir>
-          <preprocessorList>
-            <Elem>HAVE_INTTYPES_H=1</Elem>
-            <Elem>HAVE_LIBM=1</Elem>
-            <Elem>HAVE_MEMORY_H=1</Elem>
-            <Elem>HAVE_SQRT=1</Elem>
-            <Elem>HAVE_STDINT_H=1</Elem>
-            <Elem>HAVE_STDLIB_H=1</Elem>
-            <Elem>HAVE_STRCHR=1</Elem>
-            <Elem>HAVE_STRINGS_H=1</Elem>
-            <Elem>HAVE_STRING_H=1</Elem>
-            <Elem>HAVE_STRRCHR=1</Elem>
-            <Elem>HAVE_STRSTR=1</Elem>
-            <Elem>HAVE_SYS_STAT_H=1</Elem>
-            <Elem>HAVE_SYS_TYPES_H=1</Elem>
-            <Elem>HAVE_UNISTD_H=1</Elem>
-            <Elem>HAVE_VPRINTF=1</Elem>
-            <Elem>PACKAGE="synthts_et"</Elem>
-            <Elem>PACKAGE_BUGREPORT=""</Elem>
-            <Elem>PACKAGE_NAME="synthts_et"</Elem>
-            <Elem>PACKAGE_STRING="synthts_et 0.03"</Elem>
-            <Elem>PACKAGE_TARNAME="synthts_et"</Elem>
-            <Elem>PACKAGE_URL=""</Elem>
-            <Elem>PACKAGE_VERSION="0.03"</Elem>
-            <Elem>STDC_HEADERS=1</Elem>
-            <Elem>VERSION="0.03"</Elem>
-          </preprocessorList>
         </ccTool>
       </item>
       <item path="lib/label/mklab.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool flags="1">
+        <ccTool flags="0">
           <incDir>
+            <pElem>lib/fsc</pElem>
+            <pElem>lib/etana</pElem>
+            <pElem>include</pElem>
             <pElem>lib/label</pElem>
           </incDir>
-          <preprocessorList>
-            <Elem>HAVE_INTTYPES_H=1</Elem>
-            <Elem>HAVE_LIBM=1</Elem>
-            <Elem>HAVE_MEMORY_H=1</Elem>
-            <Elem>HAVE_SQRT=1</Elem>
-            <Elem>HAVE_STDINT_H=1</Elem>
-            <Elem>HAVE_STDLIB_H=1</Elem>
-            <Elem>HAVE_STRCHR=1</Elem>
-            <Elem>HAVE_STRINGS_H=1</Elem>
-            <Elem>HAVE_STRING_H=1</Elem>
-            <Elem>HAVE_STRRCHR=1</Elem>
-            <Elem>HAVE_STRSTR=1</Elem>
-            <Elem>HAVE_SYS_STAT_H=1</Elem>
-            <Elem>HAVE_SYS_TYPES_H=1</Elem>
-            <Elem>HAVE_UNISTD_H=1</Elem>
-            <Elem>HAVE_VPRINTF=1</Elem>
-            <Elem>PACKAGE="synthts_et"</Elem>
-            <Elem>PACKAGE_BUGREPORT=""</Elem>
-            <Elem>PACKAGE_NAME="synthts_et"</Elem>
-            <Elem>PACKAGE_STRING="synthts_et 0.03"</Elem>
-            <Elem>PACKAGE_TARNAME="synthts_et"</Elem>
-            <Elem>PACKAGE_URL=""</Elem>
-            <Elem>PACKAGE_VERSION="0.03"</Elem>
-            <Elem>STDC_HEADERS=1</Elem>
-            <Elem>VERSION="0.03"</Elem>
-          </preprocessorList>
         </ccTool>
       </item>
       <item path="lib/label/number.cpp" ex="false" tool="1" flavor2="11">
@@ -1063,7 +1014,7 @@
         </ccTool>
       </item>
       <item path="lib/label/syls.cpp" ex="false" tool="1" flavor2="11">
-        <ccTool>
+        <ccTool flags="1">
           <incDir>
             <pElem>lib/label</pElem>
           </incDir>
