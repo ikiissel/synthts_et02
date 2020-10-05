@@ -48,7 +48,7 @@ pattern_struct patterns[] = {
     L"VVVC",	2, // 2	lAI:-US
 };
 
-//Printer PP;
+Printer PP;
 
 bool can_palat(CFSWString c) {
     if (c.FindOneOf(L"DLNST") > -1) return true;
@@ -293,6 +293,12 @@ bool IsKPT (CFSWString s) {
 
 CFSWString ToGBD (CFSWString s) {
     if (s == L"k") return L"g";
+        else
+    if (s == L"p") return L"b";
+        else
+    if (s == L"t") return L"d";
+    else
+        return s;
 }
 
 void AddStress(CFSClassArray<TSyl> &sv, INTPTR wp) {
@@ -321,6 +327,10 @@ void AddStress(CFSClassArray<TSyl> &sv, INTPTR wp) {
     if (size == 1) {
         sv[0].Stress = main_stress;
         sv[0].Syl.Remove(L'<');
+        sv[0].DoQ = 1;
+                CFSWString c = sv[0].Syl.GetAt(0);
+                if (IsKPT (c))
+                    sv[0].Syl[0] = ToGBD(c)[0];
 
     }
     else {
@@ -332,10 +342,9 @@ void AddStress(CFSClassArray<TSyl> &sv, INTPTR wp) {
 
             // liitsõna esimese klusiili parandus
             if (wp > 0 && i == 0) {
-                if (sv[i].Syl.GetAt(0) == L't')
-                    sv[i].Syl[0] = L'd';
-                //PP.prnn(sv[i].Syl + L"Koos d-ga");
-                
+                CFSWString c = sv[i].Syl.GetAt(0);
+                if (IsKPT (c))
+                    sv[i].Syl[0] = ToGBD(c)[0];
             }
             
             
@@ -447,10 +456,10 @@ void TUtterance::DoSyls(TWord& TW) {
 			TW.TSA[i].Syl.Remove(L':');
 			
 		}
-/*		PP.prn(TW.TSA[i].Syl);
+		PP.prn(TW.TSA[i].Syl);
                 PP.prni(TW.TSA[i].Stress);
                 PP.prni(TW.TSA[i].DoQ);
-                PP.prnn();   */ 
+                PP.prnn();
 		TW.TSA[i].DoPhones(TW.TSA[i]);
 
 	}
