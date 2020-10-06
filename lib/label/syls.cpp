@@ -341,7 +341,7 @@ void AddStress(CFSClassArray<TSyl> &sv, INTPTR wp) {
         for (INTPTR i = 0; i < size; i++) {
 
             // liitsõna esimese klusiili parandus
-            if (wp > 0 && i == 0) {
+            if (i == 0) {
                 CFSWString c = sv[i].Syl.GetAt(0);
                 if (IsKPT (c))
                     sv[i].Syl[0] = ToGBD(c)[0];
@@ -463,7 +463,7 @@ void TUtterance::DoSyls(TWord& TW) {
 		TW.TSA[i].DoPhones(TW.TSA[i]);
 
 	}
-        //PP.prnn();
+        PP.prnn();
 }
 
 // 

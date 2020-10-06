@@ -734,6 +734,8 @@ void TSyl::DoPhones(TSyl &T) {
 
 }
 
+Printer P;
+
 CFSArray<CFSWString> do_all(CFSWString utt, bool print_label, bool print_utt) {
 	CFSArray<CFSWString> res, TempA;
 	CFSArray<CPTWord> PTW;
@@ -753,6 +755,11 @@ CFSArray<CFSWString> do_all(CFSWString utt, bool print_label, bool print_utt) {
 		TW.TWMInfo = MRs[i].m_MorphInfo[0];
 		TW.AddEndings();
 		TU.TWA.AddItem(TW);
+                /*for (int j = 0; j < MRs[i].m_MorphInfo.GetSize(); j ++) {
+                    P.prnn(MRs[i].m_MorphInfo[j].m_szRoot +MRs[i].m_MorphInfo[j].m_szEnding);
+                }*/
+                
+                
 	}
 
 
