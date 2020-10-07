@@ -456,7 +456,7 @@ void TUtterance::DoSyls(TWord& TW) {
 			TW.TSA[i].Syl.Remove(L':');
 			
 		}
-		PP.prn(TW.TSA[i].Syl);
+		//PP.prn(TW.TSA[i].Syl);
                 PP.prni(TW.TSA[i].Stress);
                 PP.prni(TW.TSA[i].DoQ);
                 PP.prnn();
