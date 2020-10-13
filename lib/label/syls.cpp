@@ -325,8 +325,11 @@ void AddStress(CFSClassArray<TSyl> &sv, INTPTR wp) {
 
     // ühesilbiline
     if (size == 1) {
-        sv[0].Stress = main_stress;
+        
         sv[0].Syl.Remove(L'<');
+        
+        sv[0].Stress = main_stress;
+        
         sv[0].DoQ = 0;
                 CFSWString c = sv[0].Syl.GetAt(0);
                 if (IsKPT (c))
@@ -456,12 +459,13 @@ void TUtterance::DoSyls(TWord& TW) {
 			TW.TSA[i].Syl.Remove(L':');
 			
 		}
-		//GitTest
-                //PP.prn(TW.TSA[i].Syl);
+		
+                PP.prn(TW.TSA[i].Syl);
                 PP.prni(TW.TSA[i].Stress);
                 PP.prni(TW.TSA[i].DoQ);
                 PP.prnn();
 		TW.TSA[i].DoPhones(TW.TSA[i]);
+                
 
 	}
         PP.prnn();
