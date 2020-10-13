@@ -459,11 +459,12 @@ void TUtterance::DoSyls(TWord& TW) {
 			TW.TSA[i].Syl.Remove(L':');
 			
 		}
-		
+		//GitTest2
+                
                 PP.prn(TW.TSA[i].Syl);
                 PP.prni(TW.TSA[i].Stress);
                 PP.prni(TW.TSA[i].DoQ);
-                PP.prnn();
+                //PP.prnn();
 		TW.TSA[i].DoPhones(TW.TSA[i]);
                 
 
