@@ -427,9 +427,21 @@ void TUtterance::DoSyls(TWord& TW) {
         AddStress(TSA_temp, cw);
 
         for (INTPTR j = 0; j < TSA_temp.GetSize(); j++) {
+            TSyl T = TSA_temp[j];
+            PP.prn(T.Syl);            
+            PP.prn(TW.TWMInfo.m_cPOS);            
+            PP.prni(T.Stress);
+            PP.prni(T.DoQ);
+            PP.prnn();
+            
+            if (T.Syl.Find(L":", 0) > -1) {
+                T.DoQ = 1;
+                T.Syl.Remove(L':');
+
+            }
 
 
-            TW.TSA.AddItem(TSA_temp[j]);
+            TW.TSA.AddItem(T);
         }
 
     }
@@ -438,17 +450,10 @@ void TUtterance::DoSyls(TWord& TW) {
     // Välde on ikka silbi, mitte foneemi omadus :)
 
     for (INTPTR i = 0; i < TW.TSA.GetSize(); i++) {
-        if (TW.TSA[i].Syl.Find(L":", 0) > -1) {
-            TW.TSA[i].DoQ = 1;
-            TW.TSA[i].Syl.Remove(L':');
-
-        }
+        
 
 
-        PP.prn(TW.TSA[i].Syl);
-        PP.prni(TW.TSA[i].Stress);
-        PP.prni(TW.TSA[i].DoQ);
-        PP.prnn();
+        
         TW.TSA[i].DoPhones(TW.TSA[i]);
 
 
