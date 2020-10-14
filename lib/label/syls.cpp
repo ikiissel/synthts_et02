@@ -453,18 +453,18 @@ void TUtterance::DoSyls(TWord& TW) {
 	TW.e2 = TW.TSA.GetSize();
 	// Välde on ikka silbi, mitte foneemi omadus :)
 	
-	for (INTPTR i = 0; i < TW.e2; i++) {
+	for (INTPTR i = 0; i < TW.TSA.GetSize(); i++) {
 		if (TW.TSA[i].Syl.Find(L":", 0) > -1) {
 			TW.TSA[i].DoQ  = 1;
 			TW.TSA[i].Syl.Remove(L':');
 			
 		}
-		//GitTest2
+		
                 
                 PP.prn(TW.TSA[i].Syl);
                 PP.prni(TW.TSA[i].Stress);
                 PP.prni(TW.TSA[i].DoQ);
-                //PP.prnn();
+                
 		TW.TSA[i].DoPhones(TW.TSA[i]);
                 
 
