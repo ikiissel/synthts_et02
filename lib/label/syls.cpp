@@ -281,6 +281,11 @@ bool IsKPT(CFSWString s) {
     return false;
 }
 
+bool IsVoiced(CFSWString s) {
+    if (s.FindOneOf(L"gbdkptsš")>-1) return false;
+    return true;
+}
+
 CFSWString ToGBD(CFSWString s) {
     if (s == L"k") return L"g";
     else
@@ -426,20 +431,65 @@ void TUtterance::DoSyls(TWord& TW) {
 
         AddStress(TSA_temp, cw);
 
-        for (INTPTR j = 0; j < TSA_temp.GetSize(); j++) {
+        INTPTR size = TSA_temp.GetSize();
+        
+        
+        
+        for (INTPTR j = 0; j < size; j++) {
             TSyl T = TSA_temp[j];
             PP.prn(T.Syl);            
             PP.prn(TW.TWMInfo.m_cPOS);            
-            PP.prni(T.Stress);
-            PP.prni(T.DoQ);
-            PP.prnn();
+            //PP.prni(T.Stress);
+            //PP.prni(T.DoQ);
+            //PP.prnn();
             
             if (T.Syl.Find(L":", 0) > -1) {
                 T.DoQ = 1;
                 T.Syl.Remove(L':');
 
             }
-
+            
+            if (size == 1) {
+                if (TW.TWMInfo.m_cPOS == L'J' || T.Syl == L"ei" || 
+                        T.Syl == L"on" || T.Syl.GetLength() < 3) {
+                    T.DoQ = 0;
+                    T.Stress = 0;
+                }
+            } else
+                //Mitmesilbilise esimest ei vaata, ainult järgnevaid
+                if (j > 0) {
+                    TSyl TPrev = TSA_temp[j-1];
+                    if (IsKPT(TPrev.Syl.GetAt(TPrev.Syl.GetLength()-1))) {
+                        PP.prnn();
+                        PP.prnn(L"\tOn " + TPrev.Syl);
+                        
+                        
+                        if (IsVoiced(TPrev.Syl.GetAt(TPrev.Syl.GetLength()-2)) 
+                                &&
+                           IsVoiced(T.Syl.GetAt(0))) {
+                            // kui on kahe helilise vahel "tapa"
+                            
+                        } 
+                        // ei ole katsun
+                        else { 
+                            TPrev.Syl[TPrev.Syl.GetLength()-1] = L'x';
+                            TSA_temp[j-1] = TPrev;
+                        }
+                           
+                        
+                        //PP.prnn();
+                        //PP.prnn(L"\t" + TPrev.Syl);
+                    }
+                
+                }
+                
+            
+            //PP.prn(T.Syl);            
+            //PP.prn(TW.TWMInfo.m_cPOS);            
+            PP.prni(T.Stress);
+            PP.prni(T.DoQ);
+            PP.prnn();
+            
 
             TW.TSA.AddItem(T);
         }
