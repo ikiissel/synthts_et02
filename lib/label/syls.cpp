@@ -476,26 +476,28 @@ void TUtterance::DoSyls(TWord& TW) {
                         if (IsVoiced(P) && IsVoiced(N)) {
                             
                         }
-                        else {
-                            //PP.prnn(L"[Ei ole V " + P + L" " + C + L" " + N + L"]");
+                        else {                            
                             CFSWString KPT = TPrev.Syl.GetAt(TPrev.Syl.GetLength()-1);
                             KPT = ToGBD(KPT);
-                            TPrev.Syl[TPrev.Syl.GetLength()-1] = KPT[0];
-                            
-                            TW.TSA[TW.TSA.GetSize()-1] = TPrev;
-                            //PP.prnn(L"[Ei ole V " + P + L" " + C + L" " + N + L"] " + TSA_temp[j-1].Syl);
+                            TPrev.Syl[TPrev.Syl.GetLength()-1] = KPT[0];                            
+                            TW.TSA[TW.TSA.GetSize()-1] = TPrev;                            
                         }
                         
                         // Käesoleva silbi algus
-                            P = TPrev.Syl.GetAt(TPrev.Syl.GetLength()-1);
-                            C = T.Syl.GetAt(0);    
-                            N = T.Syl.GetAt(1);
-                        PP.prnn(L"\nEi ole ["  + P + L" " + C + L" " + N + L"] ");
-                        if (IsKPT(T.Syl.GetAt(0))) {
-
-                        }
 
                     }
+
+                    TPrev = TW.TSA[TW.TSA.GetSize()-1];
+                    
+                    P = TPrev.Syl.GetAt(TPrev.Syl.GetLength()-1);
+                    C = T.Syl.GetAt(0);    
+                    N = T.Syl.GetAt(1);
+                    
+                        if (IsKPT(T.Syl.GetAt(0))) {
+                            PP.prnn(L" ["  + P + L" " + C + L" " + N + L"] " + TPrev.Syl +L" "+ T.Syl);
+                        }
+                    
+                    
                 
                 }
                 
