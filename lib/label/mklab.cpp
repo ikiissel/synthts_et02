@@ -725,6 +725,10 @@ void TSyl::DoPhones(TSyl &T) {
 		if (c == L'ä') c = L"x";
 		if (c == L'ö') c = L"c";
 		if (c == L'ü') c = L"y";
+                if (c == L'g') c = L"k";
+                if (c == L'b') c = L"p";
+                if (c == L'd') c = L"t";
+                
 
 		P.Phone = c;
 		P.p6 = i + 1;

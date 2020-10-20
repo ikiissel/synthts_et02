@@ -285,7 +285,7 @@ bool IsVoiced(CFSWString s) {
     if (s.FindOneOf(L"gbdkptsš")>-1) return false;
     return true;
 }
-
+/*
 CFSWString ToGBD(CFSWString s) {
     if (s == L"k") return L"g";
     else
@@ -295,7 +295,7 @@ CFSWString ToGBD(CFSWString s) {
     else
         return s;
 }
-
+*/
 void AddStress(CFSClassArray<TSyl> &sv, INTPTR wp) {
     /* Kõige radikaalsem rõhutus siiani. 
      * wp = kui on liitsõna esimene liige siis on seal pearõhk.
@@ -323,9 +323,6 @@ void AddStress(CFSClassArray<TSyl> &sv, INTPTR wp) {
         sv[0].Stress = main_stress;
 
         sv[0].DoQ = 0;
-        CFSWString c = sv[0].Syl.GetAt(0);
-        if (IsKPT(c))
-            sv[0].Syl[0] = ToGBD(c)[0];
 
     } else {
         // paneme varasema teadmise järgi algväärtused
@@ -335,11 +332,6 @@ void AddStress(CFSClassArray<TSyl> &sv, INTPTR wp) {
         for (INTPTR i = 0; i < size; i++) {
 
             // liitsõna esimese klusiili parandus
-            if (i == 0) {
-                CFSWString c = sv[i].Syl.GetAt(0);
-                if (IsKPT(c))
-                    sv[i].Syl[0] = ToGBD(c)[0];
-            }
 
 
             // eksperimendi korras topeldame pikeneva, aga järgmisesse silpi sattunud laa-t:a -> laat-t:ta
@@ -401,6 +393,126 @@ CFSWString word_to_syls(CFSWString word) {
     return s;
 }
 
+
+
+void TUtterance::DoSyls(TWord& TW) {
+    //PP.prnn(TW.TWMInfo.m_szRoot);
+
+
+    CFSArray<CFSWString> temp_arr, c_words;
+    CFSClassArray<TSyl> TSA;
+    CFSClassArray<TSyl> TSA_temp;
+
+    //Kuna siin tulevad DLNST märgentitena siis:
+    TW.TWMInfo.m_szRoot = TW.TWMInfo.m_szRoot.ToLower();
+
+    explode(TW.TWMInfo.m_szRoot, L"_", c_words);
+    CFSWString s;
+
+    for (INTPTR cw = 0; cw < c_words.GetSize(); cw++) {
+        s = word_to_syls(c_words[cw]);
+        explode(s, d, temp_arr);
+        TSA_temp.Cleanup();
+        for (INTPTR i = 0; i < temp_arr.GetSize(); i++) {
+            TSyl T;
+            T.Syl = temp_arr[i];
+            T.Stress = 0;
+            //T.DoPhones(T);
+            TSA_temp.AddItem(T);
+
+        }
+
+        AddStress(TSA_temp, cw);
+
+        INTPTR size = TSA_temp.GetSize();
+
+
+
+        for (INTPTR j = 0; j < size; j++) {
+            TSyl T = TSA_temp[j];
+            //PP.prn(T.Syl);            
+            //PP.prn(TW.TWMInfo.m_cPOS);            
+            //PP.prni(T.Stress);
+            //PP.prni(T.DoQ);
+            //PP.prnn();
+
+            if (T.Syl.Find(L":", 0) > -1) {
+                T.DoQ = 1;
+                T.Syl.Remove(L':');
+
+            }
+
+            if (size == 1) {
+                if (TW.TWMInfo.m_cPOS == L'J' || T.Syl == L"ei" ||
+                        T.Syl == L"on" || T.Syl.GetLength() < 3) {
+                    T.DoQ = 0;
+                    T.Stress = 0;
+                }
+            } else
+                
+                if (j > 0) {//Mitmesilbilise esimest ei vaata, ainult järgnevaid
+
+                
+
+                CFSWString P, C, N;
+
+
+                TSyl TPrev = TW.TSA[TW.TSA.GetSize() - 1];
+
+                P = TPrev.Syl.GetAt(TPrev.Syl.GetLength() - 1);
+                C = T.Syl.GetAt(0);
+                N = T.Syl.GetAt(1);
+
+                if (IsKPT(T.Syl.GetAt(0))) {
+                    PP.prnn(L"\t[" + P + L" " + C + L" " + N + L"] " + TPrev.Syl + L" " + T.Syl);
+
+                    if (IsVoiced(P) && IsVoiced(N)) {
+                        if (TW.TSA[TW.TSA.GetSize() - 1].DoQ == 0)
+                            TW.TSA[TW.TSA.GetSize() - 1].Syl = TW.TSA[TW.TSA.GetSize() - 1].Syl + C;
+                    }
+
+
+                }
+
+
+
+            }
+
+
+            //PP.prn(T.Syl);            
+            //PP.prn(TW.TWMInfo.m_cPOS);            
+            //PP.prni(T.Stress);
+            //PP.prni(T.DoQ);
+            //PP.prnn();
+
+
+            TW.TSA.AddItem(T);
+        }
+
+    }
+
+
+
+
+
+    TW.e2 = TW.TSA.GetSize();
+    // Välde on ikka silbi, mitte foneemi omadus :)
+    
+    for (INTPTR i = 0; i < TW.TSA.GetSize(); i++) {
+
+        PP.pr(TW.TSA[i].Syl);
+        PP.prni(TW.TSA[i].DoQ);
+
+
+        TW.TSA[i].DoPhones(TW.TSA[i]);
+    }
+
+    PP.prnn();
+}
+
+// VANA Versioon koos GBD-ga Hääleks on tõnu V08 
+
+/*
 void TUtterance::DoSyls(TWord& TW) {
     //PP.prnn(TW.TWMInfo.m_szRoot);
 
@@ -548,3 +660,4 @@ void TUtterance::DoSyls(TWord& TW) {
 // 
 
 
+*/
