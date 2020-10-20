@@ -455,8 +455,14 @@ void TUtterance::DoSyls(TWord& TW) {
                     T.Stress = 0;
                 }
             } else
-                //Mitmesilbilise esimest ei vaata, ainult järgnevaid
-                if (j > 0) {
+                
+                if (j == 0) {//esimene silp
+                CFSWString c = T.Syl.GetAt(0);
+                if (IsKPT(c))
+                    T.Syl[0] = ToGBD(c)[0];
+
+                } else
+                if (j > 0) {//Mitmesilbilise esimest ei vaata, ainult järgnevaid
 
                 TSyl TPrev = TSA_temp[j - 1];
 
@@ -492,7 +498,7 @@ void TUtterance::DoSyls(TWord& TW) {
                 N = T.Syl.GetAt(1);
 
                 if (IsKPT(T.Syl.GetAt(0))) {
-                    PP.prnn(L" [" + P + L" " + C + L" " + N + L"] " + TPrev.Syl + L" " + T.Syl);
+                    PP.prnn(L"\t[" + P + L" " + C + L" " + N + L"] " + TPrev.Syl + L" " + T.Syl);
 
                     if (IsVoiced(P) && IsVoiced(N)) {
                         if (TW.TSA[TW.TSA.GetSize() - 1].DoQ == 0)
@@ -527,7 +533,8 @@ void TUtterance::DoSyls(TWord& TW) {
 
     for (INTPTR i = 0; i < TW.TSA.GetSize(); i++) {
 
-        PP.prn(TW.TSA[i].Syl);
+        PP.pr(TW.TSA[i].Syl);
+        PP.prni(TW.TSA[i].DoQ);
 
 
         TW.TSA[i].DoPhones(TW.TSA[i]);
