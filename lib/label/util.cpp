@@ -540,8 +540,8 @@ CFSWString replace_fchar (CFSWString c) {
 	if (c == L"Þ") return L"k";
 	if (c == L"ð") return L"k";
 	if (c == L"þ") return L"k";	
-        
-
+        //?
+        return L"a";
 }
 
 CFSWString replace_schar (CFSWString c) {

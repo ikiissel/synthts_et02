@@ -277,7 +277,7 @@ bool is_stressed_syl(CFSWString syl) {
 }
 
 bool IsKPT(CFSWString s) {
-    if (s.FindOneOf(L"kptš")>-1) return true;
+    if (s.FindOneOf(L"kptšT")>-1) return true;
     return false;
 }
 
@@ -285,7 +285,7 @@ bool IsVoiced(CFSWString s) {
     if (s.FindOneOf(L"gbdkptsš")>-1) return false;
     return true;
 }
-/*
+
 CFSWString ToGBD(CFSWString s) {
     if (s == L"k") return L"g";
     else
@@ -295,7 +295,7 @@ CFSWString ToGBD(CFSWString s) {
     else
         return s;
 }
-*/
+
 void AddStress(CFSClassArray<TSyl> &sv, INTPTR wp) {
     /* Kõige radikaalsem rõhutus siiani. 
      * wp = kui on liitsõna esimene liige siis on seal pearõhk.
@@ -335,10 +335,10 @@ void AddStress(CFSClassArray<TSyl> &sv, INTPTR wp) {
 
 
             // eksperimendi korras topeldame pikeneva, aga järgmisesse silpi sattunud laa-t:a -> laat-t:ta
-            if (i > 0 && sv[i].Syl.GetAt(1) == L':') {
-                CFSWString c = sv[i].Syl.GetAt(0);
-                sv[i - 1].Syl += c;
-            }
+          //  if (i > 0 && sv[i].Syl.GetAt(1) == L':') {
+          //      CFSWString c = sv[i].Syl.GetAt(0);
+          //      sv[i - 1].Syl += c;
+          //  }
 
             if (sv[i].Syl.Find('?') > -1) {
                 sv[i].Stress = main_stress;
@@ -384,19 +384,22 @@ CFSWString word_to_syls(CFSWString word) {
 
     // varasema chars_to_phones_part_I asendus;
     s = sona_foneetiliseks(word);
+//    PP.prnn(s);
     s = sona_palataliseeri(s);
-
+//PP.prnn(s);
     // varasema the_shift asendus
     s = sona_valtesta(s);
+//PP.prnn(s);
 
     s = sona_silbita(s);
+PP.prnn(L"word_to_syls:  "+s);    
     return s;
 }
 
 
 
 void TUtterance::DoSyls(TWord& TW) {
-    //PP.prnn(TW.TWMInfo.m_szRoot);
+    PP.prnn(TW.TWMInfo.m_szRoot);
 
 
     CFSArray<CFSWString> temp_arr, c_words;
@@ -421,9 +424,16 @@ void TUtterance::DoSyls(TWord& TW) {
             TSA_temp.AddItem(T);
 
         }
-
+        
+        
+        
         AddStress(TSA_temp, cw);
-
+        
+        for (int x = 0; x < TSA_temp.GetSize(); x ++ ) {
+            PP.prnn(L"peale addstress "+TSA_temp[x].Syl);
+        }
+        
+        
         INTPTR size = TSA_temp.GetSize();
 
 
@@ -435,13 +445,15 @@ void TUtterance::DoSyls(TWord& TW) {
             //PP.prni(T.Stress);
             //PP.prni(T.DoQ);
             //PP.prnn();
-
+            PP.prnn(T.Syl);            
             if (T.Syl.Find(L":", 0) > -1) {
                 T.DoQ = 1;
                 T.Syl.Remove(L':');
 
             }
 
+            
+            
             if (size == 1) {
                 if (TW.TWMInfo.m_cPOS == L'J' || T.Syl == L"ei" ||
                         T.Syl == L"on" || T.Syl.GetLength() < 3) {
@@ -466,9 +478,18 @@ void TUtterance::DoSyls(TWord& TW) {
                 if (IsKPT(T.Syl.GetAt(0))) {
                     PP.prnn(L"\t[" + P + L" " + C + L" " + N + L"] " + TPrev.Syl + L" " + T.Syl);
 
-                    if (IsVoiced(P) && IsVoiced(N)) {
-                        if (TW.TSA[TW.TSA.GetSize() - 1].DoQ == 0)
+                    if (IsVoiced(P) && IsVoiced(N)) {                        
+                        if (TW.TSA[TW.TSA.GetSize() - 1].DoQ == 0) {
                             TW.TSA[TW.TSA.GetSize() - 1].Syl = TW.TSA[TW.TSA.GetSize() - 1].Syl + C;
+                            
+                            // Pööran välte tagasi õigeks
+                            if (T.DoQ == 1) {
+                                T.DoQ = 0;
+                                TW.TSA[TW.TSA.GetSize() - 1].DoQ = 1;
+                                
+                            }
+                            
+                        }
                     }
 
 
@@ -508,6 +529,7 @@ void TUtterance::DoSyls(TWord& TW) {
     }
 
     PP.prnn();
+       PP.prnn();
 }
 
 // VANA Versioon koos GBD-ga Hääleks on tõnu V08 
@@ -553,7 +575,7 @@ void TUtterance::DoSyls(TWord& TW) {
             //PP.prni(T.Stress);
             //PP.prni(T.DoQ);
             //PP.prnn();
-
+            PP.prnn(T.Syl);
             if (T.Syl.Find(L":", 0) > -1) {
                 T.DoQ = 1;
                 T.Syl.Remove(L':');
@@ -658,6 +680,5 @@ void TUtterance::DoSyls(TWord& TW) {
 }
 
 // 
-
 
 */
