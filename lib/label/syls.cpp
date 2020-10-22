@@ -457,8 +457,8 @@ void TUtterance::DoSyls(TWord& TW) {
             if (size == 1) {
                 if (TW.TWMInfo.m_cPOS == L'J' || T.Syl == L"ei" ||
                         T.Syl == L"on" || T.Syl.GetLength() < 3) {
-                    T.DoQ = 0;
-                    T.Stress = 0;
+                    T.DoQ = 1;
+                    T.Stress = 2;
                 }
             } else
                 
@@ -522,6 +522,7 @@ void TUtterance::DoSyls(TWord& TW) {
     for (INTPTR i = 0; i < TW.TSA.GetSize(); i++) {
 
         PP.pr(TW.TSA[i].Syl);
+        PP.prni(TW.TSA[i].Stress);
         PP.prni(TW.TSA[i].DoQ);
 
 
