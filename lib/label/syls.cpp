@@ -430,7 +430,7 @@ void TUtterance::DoSyls(TWord& TW) {
         AddStress(TSA_temp, cw);
         
         for (int x = 0; x < TSA_temp.GetSize(); x ++ ) {
-            PP.prnn(L"peale addstress "+TSA_temp[x].Syl);
+            //PP.prnn(L"peale addstress "+TSA_temp[x].Syl);
         }
         
         
@@ -456,9 +456,15 @@ void TUtterance::DoSyls(TWord& TW) {
             
             if (size == 1) {
                 if (TW.TWMInfo.m_cPOS == L'J' || T.Syl == L"ei" ||
-                        T.Syl == L"on" || T.Syl.GetLength() < 3) {
-                    T.DoQ = 1;
+                        T.Syl == L"on" || T.Syl.GetLength() < 4) {
+                    
+                    if (cw == 0) {
+                    T.DoQ = 0;
                     T.Stress = 2;
+                    }
+                    else {
+                      T.Stress = 1;  
+                    }
                 }
             } else
                 
@@ -476,8 +482,6 @@ void TUtterance::DoSyls(TWord& TW) {
                 N = T.Syl.GetAt(1);
 
                 if (IsKPT(T.Syl.GetAt(0))) {
-                    PP.prnn(L"\t[" + P + L" " + C + L" " + N + L"] " + TPrev.Syl + L" " + T.Syl);
-
                     if (IsVoiced(P) && IsVoiced(N)) {                        
                         if (TW.TSA[TW.TSA.GetSize() - 1].DoQ == 0) {
                             TW.TSA[TW.TSA.GetSize() - 1].Syl = TW.TSA[TW.TSA.GetSize() - 1].Syl + C;
@@ -491,13 +495,22 @@ void TUtterance::DoSyls(TWord& TW) {
                             
                         }
                     }
-
-
+                } // KPTlõpp
+                
+                if (C == L"j" && P == L"j" ) {
+                    TPrev.Syl[TPrev.Syl.GetLength()-1] = L'i';
+                    TW.TSA[TW.TSA.GetSize() - 1] = TPrev;
                 }
-
-
-
-            }
+            
+                
+                if ( P == L"i" && C == L"j" && N == L"a" && T.DoQ == 1) {
+                    PP.prnn(L"\t[" + P + L" " + C + L" " + N + L"] " + TPrev.Syl + L" " + T.Syl);
+                    T.DoQ = 0;
+                    TW.TSA[TW.TSA.GetSize() - 1].DoQ = 1;
+                    
+                }
+                
+                }
 
 
             //PP.prn(T.Syl);            
