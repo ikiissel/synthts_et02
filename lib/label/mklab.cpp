@@ -332,9 +332,10 @@ CFSClassArray<TWord> TUtterance::DoTokens(CFSClassArray<TWord> TWA) {
 		if (is_conju(TWA[i].TWMInfo.m_szRoot))
 			TWA[i].PhrBreakAfter = 1;
 
-                if ((Token == L"–") && (i > 0)) {
-                    PPP.prnn(L"JEE –");
-                    TWA[i-1].PhrBreakAfter = 2;
+                if ((Token == L"–") && (TWA.GetSize() > 1) && (i < TWA.GetSize()-2)) {
+                    
+                    TWA[i+1].PhrBreakAfter = 2;
+                    
                 }
                 else
 		// 1 TINGIMUS
@@ -781,7 +782,7 @@ CFSArray<CFSWString> do_all(CFSWString utt, bool print_label, bool print_utt) {
         
         for (INTPTR i = 0; i < TU.TPA.GetSize(); i++) {
 		res.AddItem(TU.TPA[i].Phone);
-//		P.prnn(TU.TPA[i].Phone);
+		//P.prnn(TU.TPA[i].Phone);
                 
                 
 
