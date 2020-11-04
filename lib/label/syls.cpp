@@ -392,7 +392,7 @@ CFSWString word_to_syls(CFSWString word) {
 }
 
 void TUtterance::DoSyls(TWord& TW) {
-    PP.prnn(L"do_syls: " + TW.TWMInfo.m_szRoot);
+    //PP.prnn(L"do_syls: " + TW.TWMInfo.m_szRoot);
 
 
     CFSArray<CFSWString> temp_arr, c_words;
@@ -506,11 +506,14 @@ void TUtterance::DoSyls(TWord& TW) {
     TW.e2 = TW.TSA.GetSize();
     // Välde on ikka silbi, mitte foneemi omadus :)
 
-    for (INTPTR i = 0; i < TW.TSA.GetSize(); i++) {
-
-
+    PP.pr(L"do_syls: ");
+    for (INTPTR i = 0; i < TW.TSA.GetSize(); i++) { 
+        
+        PP.pr(TW.TSA[i].Syl);
+        
         TW.TSA[i].DoPhones(TW.TSA[i]);
     }
+    PP.prnn();
 
 }
 

@@ -296,7 +296,7 @@ CFSClassArray<TWord> TUtterance::DoNumbers(CFSClassArray<TWord> TWA) {
 
 }
 
-
+Printer PPP;
 
 CFSClassArray<TWord> TUtterance::DoTokens(CFSClassArray<TWord> TWA) {
 	CFSClassArray<TWord> Result;
@@ -308,8 +308,10 @@ CFSClassArray<TWord> TUtterance::DoTokens(CFSClassArray<TWord> TWA) {
 
 
 	for (INTPTR i = 0; i < TWA.GetSize(); i++) {
-
+            
 		CFSWString Token = TWA[i].Token;
+                PPP.prnn(Token);
+                
 		// Komad ära ja fraasibreigid paika.
 		if ((is_comma(Token.GetAt(Token.GetLength() - 1)) ||
 			is_colon(Token.GetAt(Token.GetLength() - 1)) ||
@@ -330,8 +332,11 @@ CFSClassArray<TWord> TUtterance::DoTokens(CFSClassArray<TWord> TWA) {
 		if (is_conju(TWA[i].TWMInfo.m_szRoot))
 			TWA[i].PhrBreakAfter = 1;
 
-
-
+                if ((Token == L"–") && (i > 0)) {
+                    PPP.prnn(L"JEE –");
+                    TWA[i-1].PhrBreakAfter = 2;
+                }
+                else
 		// 1 TINGIMUS
 		if (i < (TWA.GetSize() - 1) && IsOKNumber(TWA[i]) &&
 			IsOKNumber(TWA[i + 1])) {
