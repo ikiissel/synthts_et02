@@ -296,7 +296,7 @@ CFSClassArray<TWord> TUtterance::DoNumbers(CFSClassArray<TWord> TWA) {
 
 }
 
-Printer PPP;
+//Printer PPP;
 
 CFSClassArray<TWord> TUtterance::DoTokens(CFSClassArray<TWord> TWA) {
 	CFSClassArray<TWord> Result;
@@ -310,7 +310,7 @@ CFSClassArray<TWord> TUtterance::DoTokens(CFSClassArray<TWord> TWA) {
 	for (INTPTR i = 0; i < TWA.GetSize(); i++) {
             
 		CFSWString Token = TWA[i].Token;
-                PPP.prnn(Token);
+               // PPP.prnn(Token);
                 
 		// Komad ära ja fraasibreigid paika.
 		if ((is_comma(Token.GetAt(Token.GetLength() - 1)) ||
@@ -744,7 +744,7 @@ void TSyl::DoPhones(TSyl &T) {
 
 }
 
-Printer P;
+
 
 CFSArray<CFSWString> do_all(CFSWString utt, bool print_label, bool print_utt) {
 	CFSArray<CFSWString> res, TempA;
@@ -764,7 +764,13 @@ CFSArray<CFSWString> do_all(CFSWString utt, bool print_label, bool print_utt) {
 		TW.Token = MRs[i].m_szWord;
 		TW.TWMInfo = MRs[i].m_MorphInfo[0];
 		TW.AddEndings();
-		TU.TWA.AddItem(TW);
+		//TW.Token = TW.Token + L"a";
+                TempA.Cleanup();
+                
+                //P.prnn(L"- " + TW.TWMInfo.m_szRoot);
+                TU.TWA.AddItem(TW);
+                
+                
                 /*for (int j = 0; j < MRs[i].m_MorphInfo.GetSize(); j ++) {
                     P.prnn(MRs[i].m_MorphInfo[j].m_szRoot +MRs[i].m_MorphInfo[j].m_szEnding);
                 }*/

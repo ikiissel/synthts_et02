@@ -83,7 +83,9 @@ INTPTR ctype(CFSWString c);
 INTPTR is_abbreviation(CFSWString s, CFSArray<CFSWString> &a);
 CFSWString replace_fchar(CFSWString c);
 CFSWString replace_schar(CFSWString c);
+
 INTPTR explode(CFSWString s, CFSWString cSplitter, CFSArray<CFSWString> &Array);
+
 CMorphInfo clean_anaroot_output(CMorphInfo MI);
 CFSWString its(INTPTR i);
 
@@ -97,67 +99,6 @@ bool NumberIsOK(CFSWString s);
 
 
 
-
-class Printer {
-
-    CFSWString length(CFSWString s, INTPTR l) {
-        while (s.GetLength() < l)
-            s += L" ";
-        return s;
-    }
-
-    const char* cstr(CFSWString s) {
-        return FSStrWtoA(s, FSCP_UTF8);
-    }
-
-public:
-    /* tulba laius */
-    INTPTR l = 25;
-
-    /* prindib %s+space */
-    void pr(CFSWString s) {
-
-        fprintf(stderr, "%s ", cstr(s));
-    }
-    /* prindib lihtsalt  %s + l */
-    void prn(CFSWString s) {
-        s = length(s, l);
-        fprintf(stderr, "%s", cstr(s));
-    }
-
-    /* prindib \\n */
-    void prnn() {
-        fprintf(stderr, "\n");
-    }
-
-    /* prindib %s\\n */
-    void prnn(CFSWString s) {
-        s = length(s, l);
-        fprintf(stderr, "%s\n", cstr(s));
-    }
-    /* prindib %s1\\t%s2\\n */
-    void prn2n(CFSWString s1, CFSWString s2) {
-        s1 += L" " + s2;
-        s1 = length(s1, l);
-        fprintf(stderr, "%s1\n", cstr(s1));
-    }
-    
-    
-    /* prindib \\t%s\\n */
-    void prntn(CFSWString s) {
-        s = length(s, l);
-        fprintf(stderr, "\t%s\n", cstr(s));
-    }
-/* prindib täisatvu*/
-    void prni (INTPTR i) {
-        //CFSWString s = length (s, l);
-        CFSWString nr = its(i);
-        //nr = length (nr, l);
-        fprintf(stderr, "%s ", cstr(nr));
-                
-    }
-
-};
 
         
         

@@ -48,7 +48,7 @@ pattern_struct patterns[] = {
     L"VVVC", 2, // 2	lAI:-US
 };
 
-Printer PP;
+//Printer PP;
 
 bool can_palat(CFSWString c) {
     if (c.FindOneOf(L"DLNST") > -1) return true;
@@ -506,14 +506,14 @@ void TUtterance::DoSyls(TWord& TW) {
     TW.e2 = TW.TSA.GetSize();
     // Välde on ikka silbi, mitte foneemi omadus :)
 
-    PP.pr(L"do_syls: ");
+    //PP.pr(L"do_syls: ");
     for (INTPTR i = 0; i < TW.TSA.GetSize(); i++) { 
         
-        PP.pr(TW.TSA[i].Syl);
+        //PP.pr(TW.TSA[i].Syl);
         
         TW.TSA[i].DoPhones(TW.TSA[i]);
     }
-    PP.prnn();
+    //PP.prnn();
 
 }
 
